@@ -1,0 +1,25 @@
+{
+  "name": "yup-faker",
+  "version": "0.0.1",
+  "description": "git@github.com:mauricedb/yup-faker.git",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Maurice de Beijer <maurice.de.beijer@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "yup",
+    "faker",
+    "mocks",
+    "testing"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mauricedb/yup-faker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mauricedb/yup-faker/issues"
+  },
+  "homepage": "https://github.com/mauricedb/yup-faker#readme"
+}
