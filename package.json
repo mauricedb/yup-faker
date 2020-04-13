@@ -46,11 +46,19 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "peerDependencies": {},
+  "dependencies": {
+    "faker": "^4.1.0"
+  },
+  "peerDependencies": {
+    "yup": "^0.28.3"
+  },
   "devDependencies": {
+    "@types/faker": "^4.1.11",
+    "@types/yup": "^0.26.35",
     "husky": "^4.2.5",
     "tsdx": "^0.13.2",
     "tslib": "^1.11.1",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "yup": "^0.28.3"
   }
 }
