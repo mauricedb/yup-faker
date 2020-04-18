@@ -1,5 +1,6 @@
 import faker from 'faker';
 import * as yup from 'yup';
+
 import { handleStringSchema } from './string';
 
 describe('Create random strings for', () => {

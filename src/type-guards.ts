@@ -1,5 +1,10 @@
 import { YupSchema } from 'types';
 
 export function isYupSchema(schema: any): schema is YupSchema {
-  return !!schema.tests && Array.isArray(schema.tests);
+  return (
+    schema &&
+    schema.__isYupSchema__ &&
+    schema.tests &&
+    Array.isArray(schema.tests)
+  );
 }
