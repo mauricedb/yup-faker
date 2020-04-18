@@ -29,7 +29,7 @@ function handleArraySchema(schema: YupArraySchema): unknown[] {
     .map(() => getFakeData(subSubSchema));
 }
 
-function isEmail(schema: YupSchema) {
+function isEmail(schema: YupSchema): boolean {
   return !!schema.tests.find(test => test.OPTIONS.name === 'email');
 }
 
