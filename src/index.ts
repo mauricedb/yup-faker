@@ -1,6 +1,7 @@
 import { Schema, reach } from 'yup';
 import faker from 'faker';
-import { YupObjectSchema, YupSchema, YupArraySchema } from 'types';
+import { YupObjectSchema, YupSchema, YupArraySchema } from './types';
+import { handleStringSchema } from './handlers/string';
 
 export const sum = (a: number, b: number) => {
   if ('development' === process.env.NODE_ENV) {
@@ -27,18 +28,6 @@ function handleArraySchema(schema: YupArraySchema): unknown[] {
   return new Array(faker.random.number({ min: 0, max: 5 }))
     .fill(null)
     .map(() => getFakeData(subSubSchema));
-}
-
-function isEmail(schema: YupSchema): boolean {
-  return !!schema.tests.find(test => test.OPTIONS.name === 'email');
-}
-
-function handleStringSchema(schema: YupSchema): string {
-  if (isEmail(schema)) {
-    return faker.internet.email();
-  }
-
-  return faker.random.words();
 }
 
 function handleMixedSchema(schema: YupSchema) {
