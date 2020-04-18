@@ -7,27 +7,30 @@ describe('Create random mixed value for', () => {
   beforeEach(() => faker.seed(1));
 
   test('a set of allowed values', () => {
-    const result = handleMixedSchema(
-      yup.mixed().oneOf(['one', 'two', 'three'])
-    );
+    const schema = yup.mixed().oneOf(['one', 'two', 'three']);
+    const result = handleMixedSchema(schema);
 
     expect(result).toMatchInlineSnapshot(`"two"`);
+    expect(() => schema.validateSync(result)).not.toThrow();
   });
 
   test('a single value', () => {
-    const result = handleMixedSchema(yup.mixed().oneOf(['one']));
+    const schema = yup.mixed().oneOf(['one']);
+    const result = handleMixedSchema(schema);
 
     expect(result).toMatchInlineSnapshot(`"one"`);
+    expect(() => schema.validateSync(result)).not.toThrow();
   });
 
   test('a set of allowed and disallowed values', () => {
-    const result = handleMixedSchema(
-      yup
-        .mixed()
-        .oneOf(['one', 'two', 'three'])
-        .notOneOf(['two'])
-    );
+    const schema = yup
+      .mixed()
+      .oneOf(['one', 'two', 'three'])
+      .notOneOf(['two']);
+
+    const result = handleMixedSchema(schema);
 
     expect(result).toMatchInlineSnapshot(`"one"`);
+    expect(() => schema.validateSync(result)).not.toThrow();
   });
 });
