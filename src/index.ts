@@ -17,8 +17,4 @@ export function handleNumberSchema(schema: YupSchema): number {
   return faker.random.number();
 }
 
-export function handleBooleanSchema(schema: YupSchema): boolean {
-  return faker.random.boolean();
-}
-
 export * from './fake-data';
