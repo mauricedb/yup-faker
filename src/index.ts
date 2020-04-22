@@ -1,8 +1,12 @@
-import { Schema, reach } from 'yup';
 import faker from 'faker';
 
-import { YupObjectSchema, YupSchema, YupArraySchema } from './types';
-import { handleStringSchema, handleMixedSchema } from './handlers';
+import { YupSchema, YupArraySchema } from './types';
+import {
+  handleStringSchema,
+  handleMixedSchema,
+  handleObjectSchema,
+} from './handlers';
+import { getFakeData } from './fake-data';
 
 export const sum = (a: number, b: number) => {
   if ('development' === process.env.NODE_ENV) {
@@ -12,16 +16,6 @@ export const sum = (a: number, b: number) => {
 };
 
 const typeHandlers = new Map<string, Function>();
-
-function handleObjectSchema(schema: YupObjectSchema): object {
-  return schema._nodes
-    .map(node => {
-      const nodeSchema = reach(schema, node);
-      const value = getFakeData(nodeSchema);
-      return { [node]: value };
-    })
-    .reduce((previous, current) => ({ ...previous, ...current }), {});
-}
 
 function handleArraySchema(schema: YupArraySchema): unknown[] {
   const subSubSchema = schema._subType;
@@ -51,18 +45,4 @@ typeHandlers.set('date', handleDateSchema);
 typeHandlers.set('number', handleNumberSchema);
 typeHandlers.set('boolean', handleBooleanSchema);
 
-export function getFakeData<T = any>(schema: Schema<unknown>): T {
-  const yupSchema = schema as YupSchema;
-  const handler = typeHandlers.get(yupSchema._type);
-
-  if (handler) {
-    return handler(schema);
-  }
-
-  if (process.env.NODE_ENV !== 'production') {
-    console.warn(
-      `Unable to handle schema type ${yupSchema._type}. Returning the default value instead.`
-    );
-  }
-  return schema.default() as T;
-}
+export * from './fake-data';
