@@ -14,6 +14,13 @@ describe('Create random strings for', () => {
     expect(() => schema.validateSync(result)).not.toThrow();
   });
 
+  test('to be a string type', () => {
+    const schema = yup.string();
+    const result = handleStringSchema(schema);
+
+    expect(typeof result).toBe('string');
+  });
+
   test('an uppercase string', () => {
     const schema = yup.string().uppercase();
     const result = handleStringSchema(schema);

@@ -13,4 +13,11 @@ describe('Create random boolean value for', () => {
     expect(result).toMatchInlineSnapshot(`false`);
     expect(() => schema.validateSync(result)).not.toThrow();
   });
+
+  test('to be a boolean type', () => {
+    const schema = yup.boolean();
+    const result = handleBooleanSchema(schema);
+
+    expect(typeof result).toBe('boolean');
+  });
 });

@@ -7,5 +7,3 @@ type SchemaInternals = {
 
 type YupSchema = Schema<unknown> & SchemaInternals;
 type YupObjectSchema = ObjectSchema & SchemaInternals & { _nodes: string[] };
-type YupArraySchema = ArraySchema<unknown> &
-  SchemaInternals & { _subType: YupSchema };

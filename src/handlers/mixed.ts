@@ -8,5 +8,5 @@ export function handleMixedSchema<T>(schema: MixedSchema<T>): T {
     return faker.random.arrayElement(Array.from(schema._whitelist.list)) as any;
   }
 
-  throw new Error('Should never get here');
+  return schema.default();
 }

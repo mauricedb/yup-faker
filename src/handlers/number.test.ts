@@ -13,4 +13,11 @@ describe('Create random number value for', () => {
     expect(result).toMatchInlineSnapshot(`41702`);
     expect(() => schema.validateSync(result)).not.toThrow();
   });
+
+  test('to be a number type', () => {
+    const schema = yup.number();
+    const result = handleNumberSchema(schema);
+
+    expect(typeof result).toBe('number');
+  });
 });

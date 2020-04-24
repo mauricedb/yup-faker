@@ -14,6 +14,13 @@ describe('Create random mixed value for', () => {
     expect(() => schema.validateSync(result)).not.toThrow();
   });
 
+  test('to be a string type', () => {
+    const schema = yup.mixed().oneOf(['one', 'two', 'three']);
+    const result = handleMixedSchema(schema);
+
+    expect(typeof result).toBe('string');
+  });
+
   test('a single value', () => {
     const schema = yup.mixed().oneOf(['one']);
     const result = handleMixedSchema(schema);

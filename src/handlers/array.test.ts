@@ -2,14 +2,13 @@ import faker from 'faker';
 import * as yup from 'yup';
 
 import { handleArraySchema } from './array';
-import { YupArraySchema } from 'types';
 
 describe('Create random array for', () => {
   beforeEach(() => faker.seed(1));
 
   test('any string', () => {
     const schema = yup.array(yup.string());
-    const result = handleArraySchema(schema as YupArraySchema);
+    const result = handleArraySchema(schema);
 
     expect(result).toMatchInlineSnapshot(`
       Array [
@@ -22,7 +21,7 @@ describe('Create random array for', () => {
 
   test('any number', () => {
     const schema = yup.array().of(yup.number());
-    const result = handleArraySchema(schema as YupArraySchema);
+    const result = handleArraySchema(schema);
 
     expect(result).toMatchInlineSnapshot(`
       Array [
@@ -31,5 +30,13 @@ describe('Create random array for', () => {
       ]
     `);
     expect(() => schema.validateSync(result)).not.toThrow();
+  });
+
+  test('to be a Date instance', () => {
+    const schema = yup.array().of(yup.number());
+    const result = handleArraySchema(schema);
+
+    expect(result).toBeInstanceOf(Array);
+    expect(Array.isArray(result)).toBeTruthy();
   });
 });

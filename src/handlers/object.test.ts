@@ -35,8 +35,6 @@ describe('getFakeData', () => {
   test('getFakeData voor object schema', () => {
     const result = handleObjectSchema(personSchema);
 
-    console.log(result);
-
     expect(typeof result).toBe('object');
 
     expect(() => personSchema.validateSync(result)).not.toThrow();
