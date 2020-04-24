@@ -13,8 +13,4 @@ export function handleDateSchema(schema: YupSchema): Date {
   return faker.date.between(new Date(1900), new Date(2100));
 }
 
-export function handleNumberSchema(schema: YupSchema): number {
-  return faker.random.number();
-}
-
 export * from './fake-data';
