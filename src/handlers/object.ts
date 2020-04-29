@@ -13,6 +13,6 @@ export function handleObjectSchema(schema: ObjectSchema): object {
       })
       .reduce((previous, current) => ({ ...previous, ...current }), {});
   } else {
-    return {};
+    return schema.default();
   }
 }
