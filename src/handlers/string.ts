@@ -38,6 +38,12 @@ function isLowerCase(schema: StringSchema): boolean {
 }
 
 export function handleStringSchema(schema: StringSchema): string {
+  const minTest = schema.describe().tests.find(t => t.name == 'min');
+  const min = minTest?.params.min;
+
+  const maxTest = schema.describe().tests.find(t => t.name == 'max');
+  const max = maxTest?.params.max;
+
   if (isEmail(schema)) {
     return faker.internet.email();
   }
@@ -54,5 +60,19 @@ export function handleStringSchema(schema: StringSchema): string {
     return faker.random.words().toLowerCase();
   }
 
-  return faker.random.words();
+  let result = faker.random.words();
+
+  if (typeof min === 'number') {
+    while (result.length < min) {
+      result = `${result} ${faker.random.word()}`;
+    }
+  }
+
+  if (typeof max === 'number') {
+    if (result.length > max) {
+      result = result.slice(0, max);
+    }
+  }
+
+  return result;
 }
