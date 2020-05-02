@@ -15,7 +15,7 @@ describe('Create random mixed value for', () => {
   });
 
   test('to be a string type', () => {
-    const schema = yup.mixed().oneOf(['one', 'two', 'three']);
+    const schema = yup.mixed<string>().oneOf(['one', 'two', 'three']);
     const result = handleMixedSchema(schema);
 
     expect(typeof result).toBe('string');

@@ -1,8 +1,7 @@
 import { Schema, ObjectSchema, ArraySchema } from 'yup';
 
 type SchemaInternals = {
-  _whitelist: { list: Set<string> };
-  tests: any[];
+  _whitelist: { list: Set<unknown> };
 };
 
 type YupSchema = Schema<unknown> & SchemaInternals;
