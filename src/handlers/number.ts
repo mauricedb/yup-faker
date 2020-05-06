@@ -1,7 +1,10 @@
 import faker from 'faker';
 import { NumberSchema } from 'yup';
 
-export function handleNumberSchema(schema: NumberSchema): number {
+export function handleNumberSchema(
+  schema: NumberSchema,
+  node?: string
+): number {
   const minTest = schema.describe().tests.find(t => t.name == 'min');
   const min = minTest?.params.min ?? minTest?.params.more;
 

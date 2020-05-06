@@ -2,11 +2,14 @@ import { Schema } from 'yup';
 
 import { typeHandlers } from './handlers';
 
-export function getFakeData<T = any>(schema: Schema<unknown>): T {
+export function getFakeData<T = any>(
+  schema: Schema<unknown>,
+  node?: string
+): T {
   const handler = typeHandlers.get(schema.type);
 
   if (handler) {
-    return handler(schema);
+    return handler(schema, node);
   }
 
   if (process.env.NODE_ENV !== 'production') {

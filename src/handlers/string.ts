@@ -9,7 +9,7 @@ function isUrl(schema: StringSchema): boolean {
   return !!schema.describe().tests.find(test => test.name === 'url');
 }
 
-export function handleStringSchema(schema: StringSchema): string {
+export function handleStringSchema(schema: StringSchema, node: string): string {
   const minTest = schema.describe().tests.find(t => t.name == 'min');
   const min = minTest?.params.min;
 
@@ -25,6 +25,15 @@ export function handleStringSchema(schema: StringSchema): string {
   }
 
   let result = faker.random.words();
+
+  switch (node) {
+    case 'firstName':
+      result = faker.name.firstName();
+      break;
+    case 'lastName':
+      result = faker.name.lastName();
+      break;
+  }
 
   if (typeof min === 'number') {
     while (result.length < min) {

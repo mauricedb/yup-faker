@@ -1,7 +1,7 @@
 import faker from 'faker';
 import { DateSchema } from 'yup';
 
-export function handleDateSchema(schema: DateSchema): Date {
+export function handleDateSchema(schema: DateSchema, node?: string): Date {
   const minTest = schema.describe().tests.find(t => t.name == 'min');
   const min = minTest?.params.min ?? new Date(1000, 0, 1);
 

@@ -60,8 +60,8 @@ describe('getFakeData', () => {
     expect(() => personSchema.validateSync(result)).not.toThrow();
     expect(result).toMatchInlineSnapshot(`
       Object {
-        "firstName": "Producer Solutions",
-        "lastName": "workforce",
+        "firstName": "Branson",
+        "lastName": "Feest",
       }
     `);
   });
