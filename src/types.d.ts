@@ -5,4 +5,4 @@ type SchemaInternals = {
 };
 
 type YupSchema = Schema<unknown> & SchemaInternals;
-type YupObjectSchema = ObjectSchema & SchemaInternals & { _nodes: string[] };
+type YupObjectSchema = ObjectSchema & SchemaInternals;
