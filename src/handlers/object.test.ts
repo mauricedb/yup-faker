@@ -34,8 +34,6 @@ describe('getFakeData', () => {
       Addresses: yup.array(adresSchema),
     });
 
-    //   type Person = yup.InferType<typeof personSchema>;
-
     const result = handleObjectSchema(personSchema);
 
     expect(typeof result).toBe('object');
