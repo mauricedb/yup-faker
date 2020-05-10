@@ -10,10 +10,10 @@ function isUrl(schema: StringSchema): boolean {
 }
 
 export function handleStringSchema(schema: StringSchema, node: string): string {
-  const minTest = schema.describe().tests.find(t => t.name == 'min');
+  const minTest = schema.describe().tests.find(t => t.name === 'min');
   const min = minTest?.params.min;
 
-  const maxTest = schema.describe().tests.find(t => t.name == 'max');
+  const maxTest = schema.describe().tests.find(t => t.name === 'max');
   const max = maxTest?.params.max;
 
   if (isEmail(schema)) {

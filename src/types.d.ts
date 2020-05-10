@@ -1,4 +1,4 @@
-import { Schema, ObjectSchema, ArraySchema } from 'yup';
+import { Schema, ObjectSchema } from 'yup';
 
 type SchemaInternals = {
   _whitelist: { list: Set<unknown> };
