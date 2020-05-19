@@ -9,7 +9,10 @@ function isUrl(schema: StringSchema): boolean {
   return !!schema.describe().tests.find(test => test.name === 'url');
 }
 
-export function handleStringSchema(schema: StringSchema, node: string): string {
+export function handleStringSchema(
+  schema: StringSchema,
+  node?: string
+): string {
   const minTest = schema.describe().tests.find(t => t.name === 'min');
   const min = minTest?.params.min;
 
