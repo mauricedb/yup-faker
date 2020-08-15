@@ -1,9 +1,9 @@
-import { reach, ObjectSchema } from 'yup';
+import { reach, ObjectSchema, Schema } from 'yup';
 
 export function handleObjectSchema<T extends object | null | undefined>(
   schema: ObjectSchema<T>,
-  node?: string,
-  getFakeData: Function = () => {}
+  node: string,
+  getFakeData: (schema: Schema<unknown>, node?: string) => any
 ): T {
   return Object.keys(schema.describe().fields)
     .map(node => {
