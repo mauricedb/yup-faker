@@ -12,7 +12,7 @@ function isUrl(schema: StringSchema): boolean {
 export function handleStringSchema(
   schema: StringSchema,
   node?: string
-): string {
+): string | undefined {
   const minTest = schema.describe().tests.find(t => t.name === 'min');
   const min = minTest?.params.min;
 

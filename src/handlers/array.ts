@@ -1,10 +1,10 @@
 import faker from 'faker';
-import { ArraySchema } from 'yup';
+import { NotRequiredArraySchema } from 'yup';
 
 import { getFakeData } from '../fake-data';
 
 export function handleArraySchema<T>(
-  schema: ArraySchema<T>,
+  schema: NotRequiredArraySchema<T>,
   node?: string
 ): unknown[] {
   const subSubSchema = schema.innerType;
