@@ -9,7 +9,7 @@ export function getFakeData<T = any>(
   const handler = typeHandlers.get(schema.type);
 
   if (handler) {
-    return handler(schema, node);
+    return handler(schema, node, getFakeData);
   }
 
   if (process.env.NODE_ENV !== 'production') {

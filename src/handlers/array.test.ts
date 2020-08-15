@@ -1,6 +1,7 @@
 import faker from 'faker';
 import * as yup from 'yup';
 
+import { getFakeData } from '../fake-data';
 import { handleArraySchema } from './array';
 
 describe('Create random array for', () => {
@@ -8,7 +9,7 @@ describe('Create random array for', () => {
 
   test('any string', () => {
     const schema = yup.array(yup.string());
-    const result = handleArraySchema(schema);
+    const result = handleArraySchema(schema, '', getFakeData);
 
     expect(result).toMatchInlineSnapshot(`
       Array [
@@ -21,7 +22,7 @@ describe('Create random array for', () => {
 
   test('any number', () => {
     const schema = yup.array().of(yup.number());
-    const result = handleArraySchema(schema);
+    const result = handleArraySchema(schema, '', getFakeData);
 
     expect(result).toMatchInlineSnapshot(`
       Array [
@@ -34,7 +35,7 @@ describe('Create random array for', () => {
 
   test('to be a Date instance', () => {
     const schema = yup.array().of(yup.number());
-    const result = handleArraySchema(schema);
+    const result = handleArraySchema(schema, '', getFakeData);
 
     expect(result).toBeInstanceOf(Array);
     expect(Array.isArray(result)).toBeTruthy();
