@@ -34,7 +34,7 @@ describe('getFakeData', () => {
       Addresses: yup.array(adresSchema),
     });
 
-    const result = handleObjectSchema(personSchema, undefined, getFakeData);
+    const result = handleObjectSchema(personSchema, '', getFakeData);
 
     expect(typeof result).toBe('object');
 
@@ -52,7 +52,7 @@ describe('getFakeData', () => {
       lastName: yup.string(),
     });
 
-    const result = handleObjectSchema(personSchema, undefined, getFakeData);
+    const result = handleObjectSchema(personSchema, '', getFakeData);
 
     expect(typeof result).toBe('object');
     expect(() => personSchema.validateSync(result)).not.toThrow();
