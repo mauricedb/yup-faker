@@ -11,7 +11,7 @@ describe('Create random strings for', () => {
     const result = handleStringSchema(schema);
 
     expect(typeof result).toBe('string');
-    expect(result).toMatchInlineSnapshot(`"Producer Solutions"`);
+    expect(result).toMatchInlineSnapshot(`"Producer Music"`);
     expect(() => schema.validateSync(result)).not.toThrow();
   });
 
@@ -20,7 +20,7 @@ describe('Create random strings for', () => {
     const result = handleStringSchema(schema);
 
     expect(typeof result).toBe('string');
-    expect(result).toMatchInlineSnapshot(`"PRODUCER SOLUTIONS"`);
+    expect(result).toMatchInlineSnapshot(`"PRODUCER MUSIC"`);
     expect(() => schema.validateSync(result)).not.toThrow();
   });
 
@@ -29,7 +29,7 @@ describe('Create random strings for', () => {
     const result = handleStringSchema(schema);
 
     expect(typeof result).toBe('string');
-    expect(result).toMatchInlineSnapshot(`"producer solutions"`);
+    expect(result).toMatchInlineSnapshot(`"producer music"`);
     expect(() => schema.validateSync(result)).not.toThrow();
   });
 
@@ -56,7 +56,7 @@ describe('Create random strings for', () => {
     const result = handleStringSchema(schema);
 
     expect(typeof result).toBe('string');
-    expect(result).toMatchInlineSnapshot(`"Producer Solutions Plastic"`);
+    expect(result).toMatchInlineSnapshot(`"Producer Music Liaison"`);
     expect(() => schema.validateSync(result)).not.toThrow();
   });
 
@@ -65,7 +65,7 @@ describe('Create random strings for', () => {
     const result = handleStringSchema(schema);
 
     expect(typeof result).toBe('string');
-    expect(result).toMatchInlineSnapshot(`"Producer S"`);
+    expect(result).toMatchInlineSnapshot(`"Producer M"`);
     expect(() => schema.validateSync(result)).not.toThrow();
   });
 
@@ -77,7 +77,7 @@ describe('Create random strings for', () => {
     const result = handleStringSchema(schema);
 
     expect(typeof result).toBe('string');
-    expect(result).toMatchInlineSnapshot(`"Producer Solutions Plasti"`);
+    expect(result).toMatchInlineSnapshot(`"Producer Music Liaison"`);
     expect(() => schema.validateSync(result)).not.toThrow();
   });
 
@@ -89,7 +89,7 @@ describe('Create random strings for', () => {
     const result = handleStringSchema(schema);
 
     expect(typeof result).toBe('string');
-    expect(result).toMatchInlineSnapshot(`"Producer Solutions P"`);
+    expect(result).toMatchInlineSnapshot(`"Producer Music Liais"`);
     expect(() => schema.validateSync(result)).not.toThrow();
   });
 });

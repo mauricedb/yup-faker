@@ -13,8 +13,8 @@ describe('Create random array for', () => {
 
     expect(result).toMatchInlineSnapshot(`
       Array [
-        "capacitor Music workforce",
-        "Compatible",
+        "capacitor Plastic Concrete",
+        "maroon Dinar",
       ]
     `);
     expect(() => schema.validateSync(result)).not.toThrow();
