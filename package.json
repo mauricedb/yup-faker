@@ -55,7 +55,7 @@
     "yup": "^0.29.3"
   },
   "devDependencies": {
-    "@types/faker": "^4.1.12",
+    "@types/faker": "^5.1.0",
     "@types/yup": "^0.29.6",
     "husky": "^4.2.5",
     "tsdx": "^0.13.3",
