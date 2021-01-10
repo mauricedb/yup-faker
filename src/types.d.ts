@@ -1,8 +1,10 @@
-import { Schema, ObjectSchema } from 'yup';
+import { AnySchema, ObjectSchema } from 'yup';
+import { ObjectShape } from 'yup/lib/object';
 
 type SchemaInternals = {
   _whitelist: { list: Set<unknown> };
 };
 
-type YupSchema = Schema<unknown> & SchemaInternals;
-type YupObjectSchema = ObjectSchema & SchemaInternals;
+type YupSchema = AnySchema<unknown> & SchemaInternals;
+type YupObjectSchema<TShape extends ObjectShape> = ObjectSchema<TShape> &
+  SchemaInternals;

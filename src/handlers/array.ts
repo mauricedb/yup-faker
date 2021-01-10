@@ -1,14 +1,20 @@
 import faker from 'faker';
-import { NotRequiredArraySchema, Schema } from 'yup';
+import { array } from 'yup';
 
-export function handleArraySchema<T>(
-  schema: NotRequiredArraySchema<T>,
+type ArraySchema = ReturnType<typeof array>;
+
+export function handleArraySchema(
+  schema: ArraySchema,
   node: string,
-  getFakeData: (schema: Schema<unknown>, node?: string) => any
+  getFakeData: (schema: ArraySchema['innerType'], node?: string) => any
 ): unknown[] {
   const subSubSchema = schema.innerType;
 
-  return new Array(faker.random.number({ min: 0, max: 5 }))
-    .fill(null)
-    .map(() => getFakeData(subSubSchema));
+  if (subSubSchema) {
+    return new Array(faker.random.number({ min: 0, max: 5 }))
+      .fill(null)
+      .map(() => getFakeData(subSubSchema));
+  } else {
+    return [];
+  }
 }

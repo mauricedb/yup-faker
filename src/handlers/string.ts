@@ -14,10 +14,10 @@ export function handleStringSchema(
   node?: string
 ): string | undefined {
   const minTest = schema.describe().tests.find(t => t.name === 'min');
-  const min = minTest?.params.min;
+  const min = minTest?.params?.min;
 
   const maxTest = schema.describe().tests.find(t => t.name === 'max');
-  const max = maxTest?.params.max;
+  const max = maxTest?.params?.max;
 
   if (isEmail(schema)) {
     return faker.internet.email();
