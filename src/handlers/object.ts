@@ -1,11 +1,12 @@
 import { reach, object } from 'yup';
+import { GetFakeData } from '../types';
 
 type ObjectSchema = ReturnType<typeof object>;
 
 export function handleObjectSchema<T extends object | null | undefined>(
   schema: ObjectSchema,
   node: string,
-  getFakeData: (schema: ObjectSchema, node?: string) => any
+  getFakeData: GetFakeData
 ): T {
   return Object.keys(schema.describe().fields)
     .map(node => {

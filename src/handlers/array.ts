@@ -1,14 +1,13 @@
 import faker from 'faker';
-import { AnySchema, array, lazy } from 'yup';
+import { array } from 'yup';
+import { GetFakeData } from '../types';
 
-type LazySchema = ReturnType<typeof lazy>;
 type ArraySchema = ReturnType<typeof array>;
 
 export function handleArraySchema(
   schema: ArraySchema,
   node: string,
-  getFakeData: (schema: AnySchema<unknown> | LazySchema, node?: string) => any
-  // getFakeData: (schema: ArraySchema['innerType'], node?: string) => any
+  getFakeData: GetFakeData
 ): unknown[] {
   const subSubSchema = schema.innerType;
 
