@@ -19,7 +19,8 @@
     "test:watch": "tsdx test --watch",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
-    "prettier": "prettier --write ./src/**/*.ts"
+    "prettier": "prettier --write ./src/**/*.ts",
+    "compile": "tsc --noEmit"
   },
   "author": "Maurice de Beijer <maurice.de.beijer@gmail.com>",
   "license": "MIT",

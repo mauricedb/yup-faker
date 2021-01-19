@@ -1,9 +1,11 @@
-import { AnySchema } from 'yup';
+import { AnySchema, lazy } from 'yup';
 
 import { typeHandlers } from './handlers';
 
+type LazySchema = ReturnType<typeof lazy>;
+
 export function getFakeData<T = any>(
-  schema: AnySchema<unknown>,
+  schema: AnySchema<unknown> | LazySchema,
   node?: string
 ): T {
   const handler = typeHandlers.get(schema.type);
