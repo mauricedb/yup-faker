@@ -2,7 +2,7 @@ import { AnySchema } from 'yup';
 import { LazySchema } from './types';
 
 import { typeHandlers } from './handlers';
-import { isLazySchema } from 'type-guards';
+import { isLazySchema } from './type-guards';
 
 export function getFakeData<T = any>(
   schema: AnySchema<unknown> | LazySchema,
