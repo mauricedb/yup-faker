@@ -56,7 +56,7 @@
     "yup": "^0.32.9"
   },
   "devDependencies": {
-    "@types/faker": "^5.5.5",
+    "@types/faker": "^6.6.9",
     "husky": "^7.0.0",
     "tsdx": "^0.14.1",
     "tslib": "^2.2.0",
